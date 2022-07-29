@@ -1,46 +1,16 @@
-# Getting Started with Create React App
+# Redux Bank 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Naszym celem jest stworzenie aplikacji która będzie wizualizacją kont użytkowników banku
 
-## Available Scripts
+1. Stwórz routing aplikacji. Powinien on zawierać następujące ścieżki. 
+- /bank – strona główna banku na której będziemy wyświetlali stan wszystkich lokat i kredytów w banku
+- /user/:name – strona klienta banku z formularzem dodawania lokaty oraz formularzem dodawania kredytu. Przyjmujemy, że parametr :name do identyfikator użytkownika a wykonanie pierwszej transakcji jest jednoznaczne z zainicjowaniem konta
+2. Stwórzmy `slice` który będzie odpowiadał za zarządzanie bankiem. Powinien on zawierać listę wszystkich aktywnych użytkowników wraz z ich bilansem, tablicę z listą transakcji oraz aktualny bilans całego banku
+3. Oprocentowanie dla lokat bankowych wynosi 0.005% w skali sekundy a dla kredytów 0.01% w skali sekundy
+4. Do strony banku dodaj funkcjonalność sprawdzania bilansu banku w dolarach – Pobierz aktualny kurs dolara przy pomocy API. Rezultat zapisz do slice.
 
-In the project directory, you can run:
+Tipy: Do stworzenia formularzy możesz użyć biblioteki bootstrap. Pliks z CSS jest już zaimportowany.
+W katalogu src znajduje się przykład zastosowania slice (Komponent Counter)
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+API KEY: EzYm3OUpR9GqAZ9G5le2vN8M77tEoswU
+https://apilayer.com/marketplace/exchangerates_data-api#documentation-tab
