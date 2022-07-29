@@ -1,18 +1,48 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import reduce from 'lodash/reduce'
 // import { fetchCount } from './counterAPI';
 
 const initialState = {
   balans: 0,
   users: [],
-  transactions: []
+  transactions: [],
 };
 
-
 export const bankSlice = createSlice({
-  name: 'bank',
+  name: "bank",
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    addCredit: (state, action) => {
+      console.log("Action", action);
+
+      state.transactions = [
+        ...state.transactions,
+        { ...action.payload, type: "credit" },
+      ];
+
+
+      state.balans = state.balans - action.payload.amount
+
+
+    //   state.balans = reduce(state.transactions, () => {
+
+    //   }, 0)
+
+
+    },
+    addDeposit: (state, action) => {
+      console.log("Action", action);
+
+      state.transactions = [
+        ...state.transactions,
+        { ...action.payload, type: "deposit" },
+      ];
+
+      state.balans = state.balans + action.payload.amount
+
+    },
+
     // increment: (state) => {
     //   // Redux Toolkit allows us to write "mutating" logic in reducers. It
     //   // doesn't actually mutate the state because it uses the Immer library,
@@ -30,7 +60,7 @@ export const bankSlice = createSlice({
   },
 });
 
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { addCredit, addDeposit } = bankSlice.actions;
 
 export const selectBank = (state) => state.bank;
 
